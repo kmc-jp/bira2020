@@ -5,13 +5,9 @@
 	</head>
 	<body style="margin:0px; overflow:hidden;">
     <a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam; detectionMode: mono; maxDetectionRate: 15;" vr-mode-ui="enabled: false">
-      <a-assets>
-        <img id="bira1" src="assets/bira1.png">
-        <img id="bira1" src="assets/bira2.png">
-      </a-assets>
       <a-marker type='pattern' url='assets/logo_marker.patt'>
-        <a-image src="assets/bira1.png" width="5" height="7" position="0 0 0" rotation="-90 0 0"></a-image>
-        <a-image src="assets/bira2.png" width="5" height="7" position="0 0 0" rotation="-90 0 0"></a-image>
+        <a-image src="assets/bira1.png" width="1" height="1.4" position="0 0.2 0" rotation="-90 0 0"></a-image>
+        <a-image src="assets/bira2.png" width="1" height="1.4" position="0 0 0" rotation="-90 0 0"></a-image>
       </a-marker>
       <a-entity camera></a-entity>
 		</a-scene>
