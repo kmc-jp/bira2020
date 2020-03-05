@@ -1,0 +1,1 @@
+var scene = document.querySelector("a-scene");
