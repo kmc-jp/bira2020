@@ -133,8 +133,8 @@ window.onload = function () {
 				mesh.material = material;
 			},
 			update: function(){
-				var width = 4096;
-				var height = 4096;
+				var width = 1200;
+				var height = 1200;
 				app.view.width = width + "px";
 				app.view.height = height + "px";
 				app.renderer.resize(width, height);
