@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "AR_model _bunkatu.moc3",
+		"Textures": [
+			"AR_model _bunkatu.4096/texture_00.png"
+		],
+		"Physics": "AR_model _bunkatu.physics3.json",
+		"DisplayInfo": "AR_model _bunkatu.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

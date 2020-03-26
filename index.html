@@ -2,37 +2,29 @@
 	<head>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.js"></script>
+
+    <!--By including below library in your project you agree to http://live2d.com/eula/live2d-proprietary-software-license-agreement_en.html-->
+    <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+    <script src="js/live2dcubismframework.js"></script>
+    <script src="js/live2dcubismpixi.js"></script>
+    <script src="js/pixiAframeAR.js"></script>
     <script> THREE.ImageUtils.crossOrigin = "*"; </script>
-    <script src="js/script.js"></script>
+    <!--<script src="js/script.js"></script>-->
 	</head>
 	<body style="margin:0px; overflow:hidden;">
     <a-scene embedded arjs="debugUIEnabled:false; sourceType: webcam; detectionMode: mono; maxDetectionRate: 15;" vr-mode-ui="enabled: false">
       <a-assets>
-        <img id="b41" src="assets/birabira_4_1.png" crossOrigin="anonymous"></img>
-        <img id="b42" src="assets/birabira_4_2.png" crossOrigin="anonymous"></img>
-        <img id="b3" src="assets/birabira_3.png" crossOrigin="anonymous"></img>
-        <img id="b21" src="assets/birabira_2_1.png" crossOrigin="anonymous"></img>
-        <img id="b22" src="assets/birabira_2_2.png" crossOrigin="anonymous"></img>
-        <img id="b1" src="assets/birabira_1.png" crossOrigin="anonymous"></img>
+        <img id="gl_1" src="assets/img/bira_glitch_1.png" crossOrigin="anonymous"></img>
+        <img id="gl_2" src="assets/img/bira_glitch_2.png" crossOrigin="anonymous"></img>
+        <img id="serihu" src="assets/img/bira_serihu.png" crossOrigin="anonymous"></img>
       </a-assets>
-      <a-marker type="pattern" url="assets/logo_marker.patt" registerevents>
-        <a-image id="bira4" src="#b41" width="5" height="7" position="0 0.9 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 0.9 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
+      <a-marker id="marker1" type="pattern" url="assets/pattern-QR_154668.patt" registerevents>
+        <a-image id="bira" src="#gl_1" width="5" height="7" position="0 0 0" rotation="-90 0 0" alpha-test="0.5">
         </a-image>
-        <a-image id="bira4" src="#b42" width="5" height="7" position="0 0.9 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 1.1 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
+        <a-image id="bira" src="#gl_2" width="5" height="7" position="0 1 0" rotation="-90 0 0" alpha-test="0.5">
         </a-image>
-        <a-image id="bira3" src="#b3" width="5" height="7" position="0 2 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 2 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
-        </a-image>
-        <a-image id="bira2" src="#b21" width="5" height="7" position="0 2.9 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 2.9 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
-        </a-image>
-        <a-image id="bira2" src="#b22" width="5" height="7" position="0 3.1 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 3.1 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
-        </a-image>
-        <a-image id="bira4" src="#b1" width="7.5" height="10.5" position="0 4 0" rotation="-90 0 0" alpha-test="0.5"
-            animation="property: position; from: 0 0 0; to: 0 4 0; startEvents: fade; dur: 2000; easing: easeInExpo;">
+        <a-image id="bira" src="#serihu" width="5" height="2.5" position="0 2.2 2" rotation="-90 0 0" alpha-test="0.5">
         </a-image>
       </a-marker>
       <a-entity camera></a-entity>
