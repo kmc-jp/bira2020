@@ -1,6 +1,6 @@
 window.onload = function () {
-	var marker = document.getElementById('marker2');
-	if(!marker){ marker = document.querySelector('a-marker-camera'); }
+	var marker2 = document.getElementById('marker2');
+	if(!marker2){ marker2 = document.querySelector('a-marker-camera'); }
 	var camera = document.querySelector("a-entity[camera]");
 	if(!camera){ camera = document.querySelector("a-marker-camera"); }
 	camera = camera.components.camera.camera;
@@ -10,7 +10,7 @@ window.onload = function () {
 	//マーカーに対しての直立フラグ
 	var stand_mode = false;
 
-	var models = [];
+	var models2 = [];
 	var app = new PIXI.Application(0, 0, { transparent: true });
 	loadAssets().then(addModel).then(addPlane);
 
@@ -38,7 +38,7 @@ window.onload = function () {
 			model.pos_x = x;
 			model.pos_y = y;
 
-			models.push(model);
+			models2.push(model);
 			resolve();
 		}
 		//アセットの読み込み
@@ -58,13 +58,13 @@ window.onload = function () {
 	function addModel() {
 		//モデルの登録
 		var p = new Promise(function (resolve, reject) {
-			models.forEach(function(model){
+			models2.forEach(function(model){
 				app.stage.addChild(model);
 				app.stage.addChild(model.masks);
 			});
 			app.stage.renderable = false;
 			app.ticker.add(function (deltaTime) {
-				models.forEach(function(model){
+				models2.forEach(function(model){
 					model.update(deltaTime);
 					model.masks.update(app.renderer);
 				});
@@ -77,13 +77,13 @@ window.onload = function () {
 		var plane = document.createElement('a-plane');
 		plane.setAttribute('plane', '');
 		plane.setAttribute('color', '#000');
-		plane.setAttribute('height', '10');
-		plane.setAttribute('width', '6');
+		plane.setAttribute('height', '5');
+		plane.setAttribute('width', '5');
 		//マーカーを基準にしたモデルの相対位置
 		plane.setAttribute('position', '0 1 0');
 		var stand = stand_mode ? '0 0 0' : '-90 0 0';
 		plane.setAttribute('rotation', stand);
-		marker.appendChild(plane);
+		marker2.appendChild(plane);
 
 		plane.object3D.front = new THREE.Object3D();
 		plane.object3D.front.position.set(0, 0, 0);
@@ -104,13 +104,13 @@ window.onload = function () {
 				mesh.material = material;
 			},
 			update: function(){
-				var width = 2048;
-				var height = 2048;
+				var width = 1024;
+				var height = 1024;
 				app.view.width = width + "px";
 				app.view.height = height + "px";
 				app.renderer.resize(width, height);
 
-				models.forEach(function(model){
+				models2.forEach(function(model){
 					model.position = new PIXI.Point(width * model.pos_x, height * model.pos_y);
 					model.scale = new PIXI.Point(width * 0.5, width * 0.5);
 					model.masks.resize(app.view.width, app.view.height);
@@ -119,7 +119,7 @@ window.onload = function () {
 				mesh.material.map.needsUpdate = true;
 			},
 			tick: function (time, timeDelta) {
-				if(marker.object3D.visible){
+				if(marker2.object3D.visible){
 					//画面が回転した直後（＝モデルの表示位置がずれている）でないなら描画する
 					if(!orientationchanged){ app.stage.renderable = true; }
 					mesh.material.map.needsUpdate = true;
@@ -127,7 +127,7 @@ window.onload = function () {
 					var pos = plane.object3D.getWorldPosition();
 					var gaze = plane.object3D.front.getWorldPosition();
 					gaze.sub(pos);
-					models.forEach(function(model){ 
+					models2.forEach(function(model){ 
 						//視線追従モーションの更新
 						model.gaze = gaze;
 
@@ -152,7 +152,7 @@ window.onload = function () {
 
 	var click_event = function (e) {
 		//クリックモーションの再生
-		models.forEach(function(model){ 
+		models2.forEach(function(model){ 
 			var motion = model.animator.getLayer("motion");
 			if(motion && model.click_motion){
 				motion.stop();
