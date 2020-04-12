@@ -2,7 +2,7 @@ KMCの新勧2020で配布する予定のビラの一種類に用います。
 
 github pages↓
 
-https://NosKmc.github.io/bira2020
+https://ar-2020.kmc.gr.jp/
 
 
 ビラデザイン
