@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener('load', function () {
 	var marker2 = document.getElementById('marker2');
 	if(!marker2){ marker2 = document.querySelector('a-marker-camera'); }
 	var camera = document.querySelector("a-entity[camera]");
@@ -11,7 +11,7 @@ window.onload = function () {
 	var stand_mode = false;
 
 	var models2 = [];
-	var app = new PIXI.Application(0, 0, { transparent: true });
+	var app2 = new PIXI.Application(0, 0, { transparent: true });
 	loadAssets().then(addModel).then(addPlane);
 
 	function loadAssets() {
@@ -59,14 +59,14 @@ window.onload = function () {
 		//モデルの登録
 		var p = new Promise(function (resolve, reject) {
 			models2.forEach(function(model){
-				app.stage.addChild(model);
-				app.stage.addChild(model.masks);
+				app2.stage.addChild(model);
+				app2.stage.addChild(model.masks);
 			});
-			app.stage.renderable = false;
-			app.ticker.add(function (deltaTime) {
+			app2.stage.renderable = false;
+			app2.ticker.add(function (deltaTime) {
 				models2.forEach(function(model){
 					model.update(deltaTime);
-					model.masks.update(app.renderer);
+					model.masks.update(app2.renderer);
 				});
 			});
 			resolve();
@@ -74,22 +74,22 @@ window.onload = function () {
 		return Promise.all([p]);
 	}
 	function addPlane() {
-		var plane = document.createElement('a-plane');
-		plane.setAttribute('plane', '');
-		plane.setAttribute('color', '#000');
-		plane.setAttribute('height', '5');
-		plane.setAttribute('width', '5');
+		var plane2 = document.createElement('a-plane');
+		plane2.setAttribute('plane2', '');
+		plane2.setAttribute('color', '#000');
+		plane2.setAttribute('height', '5');
+		plane2.setAttribute('width', '5');
 		//マーカーを基準にしたモデルの相対位置
-		plane.setAttribute('position', '0 1 0');
+		plane2.setAttribute('position', '0 1 0');
 		var stand = stand_mode ? '0 0 0' : '-90 0 0';
-		plane.setAttribute('rotation', stand);
-		marker2.appendChild(plane);
+		plane2.setAttribute('rotation', stand);
+		marker2.appendChild(plane2);
 
-		plane.object3D.front = new THREE.Object3D();
-		plane.object3D.front.position.set(0, 0, 0);
-		plane.object3D.add(plane.object3D.front);
+		plane2.object3D.front = new THREE.Object3D();
+		plane2.object3D.front.position.set(0, 0, 0);
+		plane2.object3D.add(plane2.object3D.front);
 
-		var texture = new THREE.Texture(app.view);
+		var texture = new THREE.Texture(app2.view);
 		texture.premultiplyAlpha = true;
 		var material = new THREE.MeshStandardMaterial({});
 		material.map = texture;
@@ -98,7 +98,7 @@ window.onload = function () {
 		material.transparent = true;
 		var mesh = null;
 
-		AFRAME.registerComponent('plane', {
+		AFRAME.registerComponent('plane2', {
 			init: function () {
 				mesh = this.el.getObject3D('mesh');
 				mesh.material = material;
@@ -106,14 +106,14 @@ window.onload = function () {
 			update: function(){
 				var width = 1024;
 				var height = 1024;
-				app.view.width = width + "px";
-				app.view.height = height + "px";
-				app.renderer.resize(width, height);
+				app2.view.width = width + "px";
+				app2.view.height = height + "px";
+				app2.renderer.resize(width, height);
 
 				models2.forEach(function(model){
 					model.position = new PIXI.Point(width * model.pos_x, height * model.pos_y);
 					model.scale = new PIXI.Point(width * 0.5, width * 0.5);
-					model.masks.resize(app.view.width, app.view.height);
+					model.masks.resize(app2.view.width, app2.view.height);
 				});
 
 				mesh.material.map.needsUpdate = true;
@@ -121,11 +121,11 @@ window.onload = function () {
 			tick: function (time, timeDelta) {
 				if(marker2.object3D.visible){
 					//画面が回転した直後（＝モデルの表示位置がずれている）でないなら描画する
-					if(!orientationchanged){ app.stage.renderable = true; }
+					if(!orientationchanged){ app2.stage.renderable = true; }
 					mesh.material.map.needsUpdate = true;
 
-					var pos = plane.object3D.getWorldPosition();
-					var gaze = plane.object3D.front.getWorldPosition();
+					var pos = plane2.object3D.getWorldPosition();
+					var gaze = plane2.object3D.front.getWorldPosition();
 					gaze.sub(pos);
 					models2.forEach(function(model){ 
 						//視線追従モーションの更新
@@ -141,7 +141,7 @@ window.onload = function () {
 					});
 				}else{
 					//マーカーが外れたら描画を止める
-					app.stage.renderable = false;
+					app2.stage.renderable = false;
 					//マーカーが外れたら画面の回転フラグを折る
 					//→マーカーの再検出時にモデルの表示位置が修正されるため
 					orientationchanged = false;
@@ -169,8 +169,8 @@ window.onload = function () {
 	window.onorientationchange = function (e) {
 		if (e === void 0) { e = null; }
 		//画面が回転するとモデルの表示位置がずれるため描画を止める
-		app.stage.renderable = false;
+		app2.stage.renderable = false;
 		//画面の回転フラグを立てる
 		orientationchanged = true;
 	}
-};
+});

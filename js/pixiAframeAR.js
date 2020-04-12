@@ -1,6 +1,5 @@
-window.onload = function () {
+window.addEventListener('load', function () {
 	var marker = document.getElementById('marker1');
-	var marker2 = document.getElementById('marker2');
 	if(!marker){ marker = document.querySelector('a-marker-camera'); }
 	var camera = document.querySelector("a-entity[camera]");
 	if(!camera){ camera = document.querySelector("a-marker-camera"); }
@@ -54,17 +53,7 @@ window.onload = function () {
 				function complate(model){ setMotion(model, resources, 0.5, 0.5, resolve, reject); }
 			});
 		});
-		var p2 = new Promise(function (resolve, reject) {
-			var loader = new PIXI.loaders.Loader();
-			loader.add('model3', "assets/model/kanban/kanban.model3.json", xhrType);
-			loader.add('motion1', "assets/model/kanban/Breathing.motion3.json", xhrType);
-			loader.load(function (loader, resources) {
-				var builder = new LIVE2DCUBISMPIXI.ModelBuilder();
-				builder.buildFromModel3Json(loader, resources['model3'], complate);
-				function complate(model){ setMotion(model, resources, 0.5, 0.5, resolve, reject); }
-			});
-		});
-		return Promise.all([p1, p2]);
+		return Promise.all([p1]);
 	}
 	function addModel() {
 		//モデルの登録
@@ -120,16 +109,12 @@ window.onload = function () {
 				app.view.width = width + "px";
 				app.view.height = height + "px";
 				app.renderer.resize(width, height);
-				/*
+
 				models.forEach(function(model){
 					model.position = new PIXI.Point(width * model.pos_x, height * model.pos_y);
 					model.scale = new PIXI.Point(width * 0.5, width * 0.5);
 					model.masks.resize(app.view.width, app.view.height);
-				});*/
-				model = models[1];
-				model.position = new PIXI.Point(width * model.pos_x, height * model.pos_y);
-				model.scale = new PIXI.Point(width * 0.5, width * 0.5);
-				model.masks.resize(app.view.width, app.view.height);
+				});
 
 				mesh.material.map.needsUpdate = true;
 			},
@@ -141,7 +126,7 @@ window.onload = function () {
 
 					var pos = plane.object3D.getWorldPosition();
 					var gaze = plane.object3D.front.getWorldPosition();
-					gaze.sub(pos);/*
+					gaze.sub(pos);
 					models.forEach(function(model){ 
 						//視線追従モーションの更新
 						model.gaze = gaze;
@@ -153,86 +138,7 @@ window.onload = function () {
 							motion.stop();
 							motion.play(model.motions[rand]);
 						}
-					});*/
-				}else{
-					//マーカーが外れたら描画を止める
-					app.stage.renderable = false;
-					//マーカーが外れたら画面の回転フラグを折る
-					//→マーカーの再検出時にモデルの表示位置が修正されるため
-					orientationchanged = false;
-				}
-			}
-		});
-		// kanban用
-		var plane2 = document.createElement('a-plane');
-		plane2.setAttribute('plane2', '');
-		plane2.setAttribute('color', '#000');
-		plane2.setAttribute('height', '5');
-		plane2.setAttribute('width', '5');
-		//マーカーを基準にしたモデルの相対位置
-		plane2.setAttribute('position', '0 2 0');
-		var stand = stand_mode ? '0 0 0' : '-90 0 0';
-		plane2.setAttribute('rotation', stand);
-		marker2.appendChild(plane2);
-
-		plane2.object3D.front = new THREE.Object3D();
-		plane2.object3D.front.position.set(0, 0, 0);
-		plane2.object3D.add(plane2.object3D.front);
-
-		var texture2 = new THREE.Texture(app.view);
-		texture2.premultiplyAlpha = true;
-		var material2 = new THREE.MeshStandardMaterial({});
-		material2.map = texture2;
-		material2.metalness = 0;
-		material2.premultipliedAlpha = true;
-		material2.transparent = true;
-		var mesh2 = null;
-
-		AFRAME.registerComponent('plane2', {
-			init: function () {
-				mesh2 = this.el.getObject3D('mesh');
-				mesh2.material = material2;
-			},
-			update: function(){
-				var width = 1024;
-				var height = 1024;
-				app.view.width = width + "px";
-				app.view.height = height + "px";
-				app.renderer.resize(width, height);
-				/*
-				models.forEach(function(model){
-					model.position = new PIXI.Point(width * model.pos_x, height * model.pos_y);
-					model.scale = new PIXI.Point(width * 0.5, width * 0.5);
-					model.masks.resize(app.view.width, app.view.height);
-				});*/
-				model2 = models[0];
-				model2.position = new PIXI.Point(width * model2.pos_x, height * model2.pos_y);
-				model2.scale = new PIXI.Point(width * 0.5, width * 0.5);
-				model2.masks.resize(app.view.width, app.view.height);
-
-				mesh2.material.map.needsUpdate = true;
-			},
-			tick: function (time, timeDelta) {
-				if(marker2.object3D.visible){
-					//画面が回転した直後（＝モデルの表示位置がずれている）でないなら描画する
-					if(!orientationchanged){ app.stage.renderable = true; }
-					mesh2.material.map.needsUpdate = true;
-
-					var pos = plane2.object3D.getWorldPosition();
-					var gaze = plane2.object3D.front.getWorldPosition();
-					gaze.sub(pos);/*
-					models.forEach(function(model){ 
-						//視線追従モーションの更新
-						model.gaze = gaze;
-
-						//ランダムでモーション再生
-						var motion = model.animator.getLayer("motion");
-						if(motion && motion.currentTime >= motion.currentAnimation.duration){
-							var rand = Math.floor(Math.random() * model.motions.length);
-							motion.stop();
-							motion.play(model.motions[rand]);
-						}
-					});*/
+					});
 				}else{
 					//マーカーが外れたら描画を止める
 					app.stage.renderable = false;
@@ -267,4 +173,4 @@ window.onload = function () {
 		//画面の回転フラグを立てる
 		orientationchanged = true;
 	}
-};
+});
