@@ -77,10 +77,10 @@ window.addEventListener('load', function () {
 		var plane2 = document.createElement('a-plane');
 		plane2.setAttribute('plane2', '');
 		plane2.setAttribute('color', '#000');
-		plane2.setAttribute('height', '5');
-		plane2.setAttribute('width', '5');
+		plane2.setAttribute('height', '10');
+		plane2.setAttribute('width', '10');
 		//マーカーを基準にしたモデルの相対位置
-		plane2.setAttribute('position', '0 1 0');
+		plane2.setAttribute('position', '4 1 2');
 		var stand = stand_mode ? '0 0 0' : '-90 0 0';
 		plane2.setAttribute('rotation', stand);
 		marker2.appendChild(plane2);
