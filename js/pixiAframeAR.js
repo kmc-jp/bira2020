@@ -74,8 +74,8 @@ window.onload = function () {
 		var xhrType = { xhrType: PIXI.loaders.Resource.XHR_RESPONSE_TYPE.JSON };
 		var p1 = new Promise(function (resolve, reject) {
 			var loader = new PIXI.loaders.Loader();
-			loader.add('model3', "assets/model/AR_model _bunkatu.model3.json", xhrType);
-			loader.add('motion1', "assets/model/test.motion3.json", xhrType);
+			loader.add('model3', "assets/model/bira/AR_model _bunkatu.model3.json", xhrType);
+			loader.add('motion1', "assets/model/bira/test.motion3.json", xhrType);
 			loader.load(function (loader, resources) {
 				var builder = new LIVE2DCUBISMPIXI.ModelBuilder();
 				builder.buildFromModel3Json(loader, resources['model3'], complate);

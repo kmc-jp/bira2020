@@ -1,0 +1,513 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamBrowLX",
+			"GroupId": "",
+			"Name": "左眉　左右"
+		},
+		{
+			"Id": "ParamBrowRX",
+			"GroupId": "",
+			"Name": "右眉　左右"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "",
+			"Name": "照れ"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "髪揺れ　後"
+		},
+		{
+			"Id": "RightHand",
+			"GroupId": "",
+			"Name": "右手上下"
+		},
+		{
+			"Id": "ParamKanzashi",
+			"GroupId": "",
+			"Name": "簪落影"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh2",
+			"GroupId": "ParamGroup",
+			"Name": "[0]簪2(リボン)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh2",
+			"GroupId": "ParamGroup",
+			"Name": "[1]簪2(リボン)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh2",
+			"GroupId": "ParamGroup",
+			"Name": "[2]簪2(リボン)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_4_ArtMesh2",
+			"GroupId": "ParamGroup",
+			"Name": "[3]簪2(リボン)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_5_ArtMesh2",
+			"GroupId": "ParamGroup",
+			"Name": "[4]簪2(リボン)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[0]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[1]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[2]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_4_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[3]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_5_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[4]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_6_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[5]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_7_ArtMesh5",
+			"GroupId": "ParamGroup2",
+			"Name": "[6]簪3(蝶)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh4",
+			"GroupId": "ParamGroup3",
+			"Name": "[0]簪4(カゴ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh4",
+			"GroupId": "ParamGroup3",
+			"Name": "[1]簪4(カゴ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh4",
+			"GroupId": "ParamGroup3",
+			"Name": "[2]簪4(カゴ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_4_ArtMesh4",
+			"GroupId": "ParamGroup3",
+			"Name": "[3]簪4(カゴ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_5_ArtMesh4",
+			"GroupId": "ParamGroup3",
+			"Name": "[4]簪4(カゴ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[0]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[1]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[2]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_4_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[3]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_5_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[4]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_6_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[5]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_7_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[6]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_8_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[7]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_9_ArtMesh83",
+			"GroupId": "ParamGroup4",
+			"Name": "[8]サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh151",
+			"GroupId": "ParamGroup5",
+			"Name": "[0]簪5(ストライプ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh151",
+			"GroupId": "ParamGroup5",
+			"Name": "[1]簪5(ストライプ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh151",
+			"GroupId": "ParamGroup5",
+			"Name": "[2]簪5(ストライプ)"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh111",
+			"GroupId": "ParamGroup6",
+			"Name": "[0]落ち：サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh111",
+			"GroupId": "ParamGroup6",
+			"Name": "[1]落ち：サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh111",
+			"GroupId": "ParamGroup6",
+			"Name": "[2]落ち：サイド"
+		},
+		{
+			"Id": "Param_Angle_Rotation_1_ArtMesh3",
+			"GroupId": "ParamGroup7",
+			"Name": "[0]簪2(リボン)修正"
+		},
+		{
+			"Id": "Param_Angle_Rotation_2_ArtMesh3",
+			"GroupId": "ParamGroup7",
+			"Name": "[1]簪2(リボン)修正"
+		},
+		{
+			"Id": "Param_Angle_Rotation_3_ArtMesh3",
+			"GroupId": "ParamGroup7",
+			"Name": "[2]簪2(リボン)修正"
+		},
+		{
+			"Id": "Param_Angle_Rotation_4_ArtMesh3",
+			"GroupId": "ParamGroup7",
+			"Name": "[3]簪2(リボン)修正"
+		},
+		{
+			"Id": "Param_Angle_Rotation_5_ArtMesh3",
+			"GroupId": "ParamGroup7",
+			"Name": "[4]簪2(リボン)修正"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "簪2(リボン)"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "簪3(蝶)"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "簪4(カゴ)"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "サイド"
+		},
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "簪5(ストライプ)"
+		},
+		{
+			"Id": "ParamGroup6",
+			"GroupId": "",
+			"Name": "落ち：サイド"
+		},
+		{
+			"Id": "ParamGroup7",
+			"GroupId": "",
+			"Name": "簪2(リボン)修正"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "キャラ"
+		},
+		{
+			"Id": "Part2",
+			"Name": "簪"
+		},
+		{
+			"Id": "Part10",
+			"Name": "顔パーツ"
+		},
+		{
+			"Id": "Part20",
+			"Name": "髪"
+		},
+		{
+			"Id": "Part27",
+			"Name": "顔"
+		},
+		{
+			"Id": "Part29",
+			"Name": "左手"
+		},
+		{
+			"Id": "Part30",
+			"Name": "コート"
+		},
+		{
+			"Id": "Part31",
+			"Name": "足"
+		},
+		{
+			"Id": "ArtMesh3_Skinning",
+			"Name": "簪2(リボン)修正(スキニング)"
+		},
+		{
+			"Id": "Part56",
+			"Name": "簪2(リボン)修正(回転)"
+		},
+		{
+			"Id": "ArtMesh151_Skinning",
+			"Name": "簪5(ストライプ)(スキニング)"
+		},
+		{
+			"Id": "Part38",
+			"Name": "簪5(ストライプ)(回転)"
+		},
+		{
+			"Id": "ArtMesh4_Skinning",
+			"Name": "簪4(カゴ)(スキニング)"
+		},
+		{
+			"Id": "Part36",
+			"Name": "簪4(カゴ)(回転)"
+		},
+		{
+			"Id": "ArtMesh5_Skinning",
+			"Name": "簪3(蝶)(スキニング)"
+		},
+		{
+			"Id": "Part35",
+			"Name": "簪3(蝶)(回転)"
+		},
+		{
+			"Id": "Part11",
+			"Name": "目差分(笑顔)"
+		},
+		{
+			"Id": "Part52",
+			"Name": "目差分（閉じ目） 修正版"
+		},
+		{
+			"Id": "Part14",
+			"Name": "目"
+		},
+		{
+			"Id": "Part19",
+			"Name": "口差分"
+		},
+		{
+			"Id": "Part21",
+			"Name": "サイド"
+		},
+		{
+			"Id": "Part22",
+			"Name": "横髪１"
+		},
+		{
+			"Id": "Part23",
+			"Name": "横髪２"
+		},
+		{
+			"Id": "Part24",
+			"Name": "前髪３"
+		},
+		{
+			"Id": "Part25",
+			"Name": "前髪1"
+		},
+		{
+			"Id": "Part26",
+			"Name": "前髪0とくせ毛"
+		},
+		{
+			"Id": "Part28",
+			"Name": "落影"
+		},
+		{
+			"Id": "ArtMesh111_Skinning",
+			"Name": "落ち：サイド(スキニング)"
+		},
+		{
+			"Id": "Part39",
+			"Name": "落ち：サイド(回転)"
+		},
+		{
+			"Id": "Part32",
+			"Name": "左"
+		},
+		{
+			"Id": "Part33",
+			"Name": "右"
+		},
+		{
+			"Id": "Part12",
+			"Name": "左（笑顔）"
+		},
+		{
+			"Id": "Part13",
+			"Name": "右（笑顔）"
+		},
+		{
+			"Id": "Part53",
+			"Name": "左 のコピー"
+		},
+		{
+			"Id": "Part54",
+			"Name": "右 のコピー"
+		},
+		{
+			"Id": "Part15",
+			"Name": "左"
+		},
+		{
+			"Id": "Part17",
+			"Name": "右"
+		},
+		{
+			"Id": "ArtMesh83_Skinning",
+			"Name": "サイド(スキニング)"
+		},
+		{
+			"Id": "Part37",
+			"Name": "サイド(回転)"
+		},
+		{
+			"Id": "Part16",
+			"Name": "左黒目"
+		},
+		{
+			"Id": "Part18",
+			"Name": "右黒目"
+		}
+	]
+}
