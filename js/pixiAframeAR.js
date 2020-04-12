@@ -33,35 +33,6 @@ window.onload = function () {
 			//クリックモーション
 			var data = resources['motion1'].data;
 			model.click_motion = animation.fromMotion3Json(data);
-			/*
-			//視線追従モーション
-			data.CurveCount = data.TotalPointCount = data.TotalSegmentCount = 0;
-			data.Curves = [];
-			var gaze_motion = animation.fromMotion3Json(data);
-			model.animator.addLayer("gaze", override, 1);
-			model.animator.getLayer("gaze").play(gaze_motion);
-
-			//視線追従モーションのパラメータ値更新
-			model.gaze = new THREE.Vector3();
-			var ids = model.parameters.ids;
-			var angle_x = Math.max(ids.indexOf("ParamAngleX"), ids.indexOf("PARAM_ANGLE_X"));
-			var angle_y = Math.max(ids.indexOf("ParamAngleY"), ids.indexOf("PARAM_ANGLE_Y"));
-			var eye_x = Math.max(ids.indexOf("ParamEyeBallX"), ids.indexOf("PARAM_EYE_BALL_X"));
-			var eye_y = Math.max(ids.indexOf("ParamEyeBallY"), ids.indexOf("PARAM_EYE_BALL_Y"));
-			gaze_motion.evaluate = (time, weight, blend, target, stackFlags, groups) => {
-				if(stand_mode){ model.gaze.y *= 0.1; }
-				var values = target.parameters.values;
-				var max = target.parameters.maximumValues;
-				var min = target.parameters.minimumValues;
-				var angle_h = model.gaze.x > 0 ? max[angle_x] : -min[angle_x];
-				var angle_v = model.gaze.y > 0 ? max[angle_y] : -min[angle_y];
-				var eye_h = model.gaze.x > 0 ? max[eye_x] : -min[eye_x];
-				var eye_v = model.gaze.y > 0 ? max[eye_y] : -min[eye_y];
-				values[angle_x] = blend(values[angle_x], model.gaze.x * angle_h, 0, weight);
-				values[angle_y] = blend(values[angle_y], model.gaze.y * angle_v, 0, weight);
-				values[eye_x] = blend(values[eye_x], model.gaze.x * eye_h, 0, weight);
-				values[eye_y] = blend(values[eye_y], model.gaze.y * eye_v, 0, weight);
-			}*/
 
 			//キャンバス内のモデルの位置
 			model.pos_x = x;
@@ -203,17 +174,3 @@ window.onload = function () {
 		orientationchanged = true;
 	}
 };
-/*
-//FPSの表示
-var script = document.createElement('script');
-script.onload=function(){
-	var stats = new Stats();
-	document.body.appendChild(stats.dom);
-	requestAnimationFrame(function loop(){
-		stats.update();
-		requestAnimationFrame(loop)
-	});
-};
-script.src='//rawgit.com/mrdoob/stats.js/master/build/stats.min.js';
-document.head.appendChild(script);
-*/
