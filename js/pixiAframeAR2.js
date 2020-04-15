@@ -24,12 +24,19 @@ window.addEventListener('load', function () {
 			var animation = LIVE2DCUBISMFRAMEWORK.Animation;
 			var override = LIVE2DCUBISMFRAMEWORK.BuiltinAnimationBlenders.OVERRIDE;
 			motions.push(animation.fromMotion3Json(resources['motion1'].data));
+			motions.push(animation.fromMotion3Json(resources['motion2'].data));
+			motions.push(animation.fromMotion3Json(resources['motion3'].data));
 			model.motions = motions;
-			model.animator.addLayer("motion", override, 1);
+			model.animator.addLayer("breath", override, 1);
+			model.animator.addLayer("blink", override, 1);
 			//ランダムでモーション再生
-			var rand = Math.floor(Math.random() * model.motions.length);
-			model.animator.getLayer("motion").play(model.motions[rand]);
-
+			//var rand = Math.floor(Math.random() * model.motions.length);
+			//model.animator.getLayer("motion").play(model.motions[rand]);
+			
+			// 呼吸モーション
+			var breath_l = model.animator.getLayer("breath");
+			breath_l.play(model.motions[0]);
+			
 			//クリックモーション
 			var data = resources['motion1'].data;
 			model.click_motion = animation.fromMotion3Json(data);
@@ -47,6 +54,8 @@ window.addEventListener('load', function () {
 			var loader = new PIXI.loaders.Loader();
 			loader.add('model3', "assets/model/kanban/kanban.model3.json", xhrType);
 			loader.add('motion1', "assets/model/kanban/Breathing.motion3.json", xhrType);
+			loader.add('motion2', "assets/model/kanban/Blink1.motion3.json", xhrType);
+			loader.add('motion3', "assets/model/kanban/Blink2.motion3.json", xhrType);
 			loader.load(function (loader, resources) {
 				var builder = new LIVE2DCUBISMPIXI.ModelBuilder();
 				builder.buildFromModel3Json(loader, resources['model3'], complate);
@@ -102,6 +111,7 @@ window.addEventListener('load', function () {
 			init: function () {
 				mesh = this.el.getObject3D('mesh');
 				mesh.material = material;
+				this.timer = 0;
 			},
 			update: function(){
 				var width = 1024;
@@ -119,26 +129,43 @@ window.addEventListener('load', function () {
 				mesh.material.map.needsUpdate = true;
 			},
 			tick: function (time, timeDelta) {
+				this.timer += timeDelta;
 				if(marker2.object3D.visible){
 					//画面が回転した直後（＝モデルの表示位置がずれている）でないなら描画する
 					if(!orientationchanged){ app2.stage.renderable = true; }
 					mesh.material.map.needsUpdate = true;
 
-					var pos = plane2.object3D.getWorldPosition();
-					var gaze = plane2.object3D.front.getWorldPosition();
-					gaze.sub(pos);
+					//var pos = plane2.object3D.getWorldPosition();
+					//var gaze = plane2.object3D.front.getWorldPosition();
+					//gaze.sub(pos);
+					model = models2[0];
+					// まばたき止める
+					var blink_l = model.animator.getLayer("blink");
+					if(!blink_l.currentAnimation || blink_l.currentTime >= blink_l.currentAnimation.duration){
+						blink_l.stop();
+					}
+					// まばたき
+					if(this.timer > 3500){
+						console.log(this.timer)
+						this.timer = 0;
+						var rand = Math.floor(Math.random() * 2) + 1;
+						blink_l.stop();
+						blink_l.play(model.motions[rand]);
+					}
+					/*
 					models2.forEach(function(model){ 
 						//視線追従モーションの更新
-						model.gaze = gaze;
+						//model.gaze = gaze;
 
 						//ランダムでモーション再生
+						
 						var motion = model.animator.getLayer("motion");
 						if(motion && motion.currentTime >= motion.currentAnimation.duration){
 							var rand = Math.floor(Math.random() * model.motions.length);
 							motion.stop();
 							motion.play(model.motions[rand]);
 						}
-					});
+					});*/
 				}else{
 					//マーカーが外れたら描画を止める
 					app2.stage.renderable = false;
