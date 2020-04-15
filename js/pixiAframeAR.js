@@ -91,7 +91,7 @@ window.addEventListener('load', function () {
 
 		var texture = new THREE.Texture(app.view);
 		texture.premultiplyAlpha = true;
-		var material = new THREE.MeshStandardMaterial({});
+		var material = new THREE.MeshBasicMaterial({});
 		material.map = texture;
 		material.metalness = 0;
 		material.premultipliedAlpha = true;
