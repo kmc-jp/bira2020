@@ -29,6 +29,7 @@ window.addEventListener('load', function () {
 			model.motions = motions;
 			model.animator.addLayer("breath", override, 1);
 			model.animator.addLayer("blink", override, 1);
+			model.animator.addLayer("motion", override, 1);
 			//ランダムでモーション再生
 			//var rand = Math.floor(Math.random() * model.motions.length);
 			//model.animator.getLayer("motion").play(model.motions[rand]);
@@ -38,7 +39,7 @@ window.addEventListener('load', function () {
 			breath_l.play(model.motions[0]);
 			
 			//クリックモーション
-			var data = resources['motion1'].data;
+			var data = resources['motion4'].data;
 			model.click_motion = animation.fromMotion3Json(data);
 
 			//キャンバス内のモデルの位置
@@ -56,6 +57,7 @@ window.addEventListener('load', function () {
 			loader.add('motion1', "assets/model/kanban/Breathing.motion3.json", xhrType);
 			loader.add('motion2', "assets/model/kanban/Blink1.motion3.json", xhrType);
 			loader.add('motion3', "assets/model/kanban/Blink2.motion3.json", xhrType);
+			loader.add('motion4', "assets/model/kanban/Shoe.motion3.json", xhrType);
 			loader.load(function (loader, resources) {
 				var builder = new LIVE2DCUBISMPIXI.ModelBuilder();
 				builder.buildFromModel3Json(loader, resources['model3'], complate);
@@ -141,7 +143,7 @@ window.addEventListener('load', function () {
 					model = models2[0];
 					// まばたき止める
 					var blink_l = model.animator.getLayer("blink");
-					if(!blink_l.currentAnimation || blink_l.currentTime >= blink_l.currentAnimation.duration){
+					if(blink_l.currentAnimation && blink_l.currentTime >= blink_l.currentAnimation.duration){
 						blink_l.stop();
 					}
 					// まばたき
@@ -151,6 +153,10 @@ window.addEventListener('load', function () {
 						var rand = Math.floor(Math.random() * 2) + 1;
 						blink_l.stop();
 						blink_l.play(model.motions[rand]);
+					}
+					var motion_l = model.animator.getLayer("motion");
+					if(motion_l.currentAnimation && motion_l.currentTime >= motion_l.currentAnimation.duration){
+						motion_l.stop();
 					}
 					/*
 					models2.forEach(function(model){ 

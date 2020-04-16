@@ -97,6 +97,11 @@
 			"Name": "呼吸"
 		},
 		{
+			"Id": "RightHand",
+			"GroupId": "",
+			"Name": "右手上下"
+		},
+		{
 			"Id": "ParamHairFront",
 			"GroupId": "",
 			"Name": "髪揺れ　前"
@@ -112,11 +117,6 @@
 			"Name": "髪揺れ　後"
 		},
 		{
-			"Id": "RightHand",
-			"GroupId": "",
-			"Name": "右手上下"
-		},
-		{
 			"Id": "ParamKanzashi",
 			"GroupId": "",
 			"Name": "簪落影"
@@ -130,6 +130,11 @@
 			"Id": "ParamLeftLeg2",
 			"GroupId": "",
 			"Name": "左脚下上下"
+		},
+		{
+			"Id": "ParamLeftArm",
+			"GroupId": "",
+			"Name": "左腕上下"
 		},
 		{
 			"Id": "Param_Angle_Rotation_1_ArtMesh2",
