@@ -122,6 +122,16 @@
 			"Name": "簪落影"
 		},
 		{
+			"Id": "ParamLeftLeg",
+			"GroupId": "",
+			"Name": "左足上下"
+		},
+		{
+			"Id": "ParamLeftLeg2",
+			"GroupId": "",
+			"Name": "左脚下上下"
+		},
+		{
 			"Id": "Param_Angle_Rotation_1_ArtMesh2",
 			"GroupId": "ParamGroup",
 			"Name": "[0]簪2(リボン)"
@@ -374,7 +384,7 @@
 			"Name": "コート"
 		},
 		{
-			"Id": "Part31",
+			"Id": "Part73",
 			"Name": "足"
 		},
 		{
@@ -408,6 +418,10 @@
 		{
 			"Id": "Part35",
 			"Name": "簪3(蝶)(回転)"
+		},
+		{
+			"Id": "Part70",
+			"Name": "笑顔差分"
 		},
 		{
 			"Id": "Part11",
@@ -462,12 +476,20 @@
 			"Name": "落ち：サイド(回転)"
 		},
 		{
-			"Id": "Part32",
+			"Id": "Part74",
 			"Name": "左"
 		},
 		{
-			"Id": "Part33",
+			"Id": "Part75",
 			"Name": "右"
+		},
+		{
+			"Id": "Part71",
+			"Name": "左（笑顔）"
+		},
+		{
+			"Id": "Part72",
+			"Name": "右（笑顔）"
 		},
 		{
 			"Id": "Part12",
